@@ -1,5 +1,4 @@
 # bot.py
-from email import message
 import os
 
 from datetime import datetime
