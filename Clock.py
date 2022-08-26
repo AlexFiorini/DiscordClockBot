@@ -36,5 +36,6 @@ async def on_ready():
             datetime_Rome = datetime.now(tz_Rome)
             testo=datetime_Rome.strftime("%H:%M")
             await message.edit(content=testo)
+        sleep(10)
 
 client.run(TOKEN)
