@@ -12,6 +12,8 @@ from dotenv import load_dotenv
 load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
 GUILD = os.getenv("DISCORD_GUILD")
+CHANNEL = os.getenv("DISCORD_CHANNEL")
+MESSAGE = os.getenv("DISCORD_MESSAGE")
 
 client = discord.Client(intents=discord.Intents.default())
 
@@ -25,11 +27,11 @@ async def on_ready():
         f'{client.user} is connected to the following guild:\n'
         f'{guild.name}(id: {guild.id})\n'
     )
-    channel = client.get_channel(1012711976046182501)
+    channel = client.get_channel(CHANNEL)
 
     tz_Rome = pytz.timezone('Europe/Rome')
     datetime_Rome = datetime.now(tz_Rome)
-    message = await channel.fetch_message(1012726198352228484)
+    message = await channel.fetch_message(MESSAGE)
 
     while 1:
         if datetime_Rome != datetime.now(tz_Rome):
